@@ -1,0 +1,28 @@
+python -m torch.distributed.run --nproc_per_node=4 run_clm.py \
+--ddp_timeout 180000 \
+--streaming true \
+--block_size 1024 \
+--overwrite_cache false \
+--model_type llama \
+--config_name ~/charllama/config.json \
+--tokenizer_name ~/charllama \
+--do_train true \
+--dataset_name ~/charlevel_dataset \
+--dataset_config_name ~/charlevel_dataset/config.json \
+--max_steps 2761655 \
+--per_device_train_batch_size 5 \
+--learning_rate 1e-4 \
+--weight_decay 0.000001 \
+--fp16 true \
+--num_train_epochs 2 \
+--save_total_limit 10 \
+--save_steps 50000 \
+--do_eval false \
+--evaluation_strategy no \
+--report_to tensorboard \
+--logging_strategy steps \
+--logging_steps 2000 \
+--logging_first_step true \
+--log_level info \
+--output_dir ~/charllama \
+--overwrite_output_dir true
