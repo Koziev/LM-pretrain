@@ -4,7 +4,7 @@
 
 В него внесены некоторые модификации:
 
-1) Добавлено использование (charlevel_tokenizer)[https://github.com/Koziev/character-tokenizer] - посимвольного токенизатора, поддерживающего необходимый API токенизаторов transformers.
+1) Добавлено использование [charlevel_tokenizer](https://github.com/Koziev/character-tokenizer) - посимвольного токенизатора, поддерживающего необходимый API токенизаторов transformers.
 Чтобы его использовать, надо указать опцию
 
 ```
