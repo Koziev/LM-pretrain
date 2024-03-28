@@ -189,7 +189,7 @@ class DataTrainingArguments:
     shuffle_buffer_size: Optional[int] = field(
         default=5_000_000,
         metadata={
-            "help": ("Argument for StreamingDataset.shuffle)"
+            "help": ("Argument for IterableDataset.shuffle)"
             )
         },
     )
