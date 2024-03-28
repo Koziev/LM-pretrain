@@ -186,6 +186,13 @@ class DataTrainingArguments:
         },
     )
     streaming: bool = field(default=False, metadata={"help": "Enable streaming mode"})
+    shuffle_buffer_size: Optional[int] = field(
+        default=5_000_000,
+        metadata={
+            "help": ("Argument for StreamingDataset.shuffle)"
+            )
+        },
+    )
     block_size: Optional[int] = field(
         default=None,
         metadata={
@@ -375,7 +382,7 @@ def main():
     # 08.11.2023
     if data_args.streaming:
         logger.info('Start shuffling the raw_datasets')
-        raw_datasets = raw_datasets.shuffle(buffer_size=5_000_000, seed=42)
+        raw_datasets = raw_datasets.shuffle(buffer_size=data_args.shuffle_buffer_size, seed=42)
         logger.info('Shuffling complete.')
 
     # See more about loading any type of standard or custom dataset (from files, python dict, pandas DataFrame, etc) at
